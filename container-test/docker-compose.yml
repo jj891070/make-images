@@ -1,0 +1,38 @@
+version: '3'
+
+services:
+    web1:
+        image: 'httpd'
+        # build: image/rd1-in-spots-test
+        # ports:
+        #     - "8091:80"
+        restart: always
+        # environment:
+        #     - JAY_REDIS_HOSTS=127.0.0.1
+        # volumes:
+        #     # nginx 設定
+        #     - .:/home/jay
+        networks:
+            - test-proxy-net
+        tty: true
+        # command: bash -c "chmod 777 /start.sh; sh /start.sh;"
+    lb:
+        build: .
+        # build: image/rd1-in-spots-test
+        # ports:
+        #     - "8091:80"
+        restart: always
+        # environment:
+        #     - JAY_REDIS_HOSTS=127.0.0.1
+        # volumes:
+        #     # nginx 設定
+        #     - .:/home/jay
+        ports:
+            - '8085:80'
+        networks:
+            - test-proxy-net
+        tty: true
+        # command: bash -c "chmod 777 /start.sh; sh /start.sh;"
+networks:
+    test-proxy-net:
+        driver: bridge

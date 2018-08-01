@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+    test-nginx-web:
+        image: 'nginx'
+        # build: image/rd1-in-spots-test
+        # ports:
+        #     - "8091:80"
+        restart: always
+        # environment:
+        #     - JAY_REDIS_HOSTS=127.0.0.1
+        volumes:
+            # nginx 設定
+            - ./test.conf:/etc/nginx/conf.d/test.conf
+        tty: true
+        # command: bash -c "chmod 777 /start.sh; sh /start.sh;"

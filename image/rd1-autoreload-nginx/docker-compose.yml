@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+    test-laravel-nginx:
+        image: 'gcr.io/rd-resources/nginx:alpine-1'
+        # build: 
+        #     context: .
+        ports:
+            - "8099:80"
+        restart: always
+        tty: true
+        # command: bash -c "chmod 777 /start.sh; sh /start.sh;"
+    
