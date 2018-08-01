@@ -15,7 +15,7 @@ services:
         networks:
             - test-proxy-net
         tty: true
-        # command: bash -c "chmod 777 /start.sh; sh /start.sh;"
+        # command: bash -c "while [ 1 ]; do sleep 10s; done"
     lb:
         build: .
         # build: image/rd1-in-spots-test
@@ -32,7 +32,7 @@ services:
         networks:
             - test-proxy-net
         tty: true
-        # command: bash -c "chmod 777 /start.sh; sh /start.sh;"
+        # command: bash -c "while [ 1 ]; do sleep 10s; done"
 networks:
     test-proxy-net:
         driver: bridge
