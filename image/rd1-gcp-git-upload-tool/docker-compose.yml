@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+    gcp-git:
+        # image: 'httpd'
+        build: 
+            context: .
+        # ports:
+        #     - "8091:80"
+        restart: always
+        # environment:
+        #     - JAY_REDIS_HOSTS=127.0.0.1
+        # volumes:
+        #     # nginx 設定
+        #     - .:/home/jay
+        tty: true
+        command: bash -c "while [ 1 ]; do sleep 10s; done"
